@@ -18,6 +18,10 @@ WORKDIR /app
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git && \
     cd stable-diffusion-webui && \
     git checkout 3e0f9a75438fa815429b5530261bcf7d80f3f101
+
+WORKDIR /app/stable-diffusion-webui/models/Lora
+ADD https://pulzepublicstorageweu.blob.core.windows.net/pulze-dream/LoRA/brick_ext_day.safetensors .
+
 WORKDIR /app/stable-diffusion-webui
 
 ENV MODEL_URL=${MODEL_URL}
